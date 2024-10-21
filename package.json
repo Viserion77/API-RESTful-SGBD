@@ -7,5 +7,8 @@
     "start": "node src/index.js",
     "test": "jest"
   },
-  "author": "Viserion77"
+  "author": "Viserion77",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
