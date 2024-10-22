@@ -18,16 +18,20 @@ const server = createServer((req, res) => {
   res.end()
 });
 
-server.listen(3000, async () => {
+const port = 3000
+server.listen(port, async () => {
   const movieLiest = await importCsvMovies()
   runSeed(movieLiest)
 
-  console.log('Server started at http://localhost:3000');
+  console.log(`\n\n\n`);
+  console.log(`Server started at http://localhost:${port}\n`);
+  console.log(`You can access the following endpoints:`);
+  console.log(`GET http://localhost:${port}/api/v1/producers/interval-awards`);
 
-  const result = await (await fetch('http://localhost:3000/api/v1/producers/interval-awards', {
-    method: 'GET',
-  })).json()
+  // const result = await (await fetch('http://localhost:port/api/v1/producers/interval-awards', {
+  //   method: 'GET',
+  // })).json()
 
-  console.log('GET:', result)
+  // console.log('GET:', result)
 })
 

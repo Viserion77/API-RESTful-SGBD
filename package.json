@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --inspect --watch --experimental-sqlite src/index.js",
-    "start": "node src/index.js",
+    "start": "node --experimental-sqlite src/index.js",
     "test": "jest"
   },
   "author": "Viserion77",
