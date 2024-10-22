@@ -18,20 +18,7 @@ export function select(query) {
 }
 
 export function runSeed(movies) {
-  database.exec(`DROP TABLE IF EXISTS movies`);
   database.exec(`DROP TABLE IF EXISTS producers`);
-
-  database.exec(`
-        CREATE TABLE movies(
-          id INTEGER PRIMARY KEY AUTOINCREMENT,
-          year INTEGER NOT NULL CHECK(year >= 1900),
-          title TEXT NOT NULL,
-          studios TEXT NOT NULL,
-          producers TEXT NOT NULL,
-          winner INTEGER NOT NULL CHECK(winner IN (0, 1))
-        ) STRICT
-      `);
-
   database.exec(`
         CREATE TABLE producers(
           id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -44,11 +31,6 @@ export function runSeed(movies) {
           max_followingWin INTEGER
         ) STRICT
       `);
-
-  insert({
-    table: 'movies',
-    items: movies,
-  });
 
   const producers = movies.reduce((acc, movie) => {
     const producersNames = movie.producers.split(' and ');
