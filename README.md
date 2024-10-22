@@ -6,9 +6,9 @@ Segue aqui algumas instruções para testar a api localmente:
 
 ## Requisitos
 - node: a versão correta esta no arquivo `.nvmrc`
-| ```bash
-| nvm use
-| ```
+```bash
+ nvm use
+```
 
 ## Instalação das dependências do projeto
 ```bash
