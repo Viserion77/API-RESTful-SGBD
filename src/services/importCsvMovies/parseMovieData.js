@@ -1,6 +1,7 @@
 // @ts-check
 
 import { CSV_SEPARATOR } from "./constants.js"
+import valdiateDataLive from "./valdiateDataLive.js"
 import validateCsvHeaders from "./validateCsvHeaders.js"
 
 /**
@@ -16,15 +17,25 @@ export default function parseMovieData(content) {
   const headers = lines.shift()?.split(CSV_SEPARATOR) ?? []
   validateCsvHeaders(headers)
 
-  return lines.map(line => {
-    const [year, title, studios, producers, winner] = line.split(CSV_SEPARATOR)
+  /** @type {Object[]} */
+  const init = []
 
-    return {
+  return lines.reduce((acc, line) => {
+    const [year, title, studios, producers, winner] = line.split(CSV_SEPARATOR)
+    const invalidLine = valdiateDataLive(year, title, studios, producers, winner)
+    if (invalidLine) {
+      console.error(`Invalid line: ${invalidLine}`)
+      return acc
+    }
+
+    acc.push({
       year: parseInt(year),
       title,
       studios,
       producers,
-      winner: winner === 'yes'
-    }
-  })
+      winner: winner === 'yes' ? 1 : 0
+    })
+
+    return acc
+  }, init)
 }
