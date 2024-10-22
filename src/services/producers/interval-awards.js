@@ -4,10 +4,28 @@ import SqlBricks from "sql-bricks"
 import { select } from "../../db.js"
 
 /**
+ * @typedef {Object} ProducerIntervalData
+ * @property {string} producer
+ * @property {number | null} interval
+ * @property {number | null} previousWin
+ * @property {number | null} followingWin
+ */
+/**
+ * @typedef {Object} Producer
+ * @property {string} name
+ * @property {number | null} min_interval
+ * @property {number | null} min_previousWin
+ * @property {number | null} min_followingWin
+ * @property {number | null} max_interval
+ * @property {number | null} max_previousWin
+ * @property {number | null} max_followingWin
+ */
+/**
  * Get the interval awards for the producers
- * @returns {{min: {producer: string, interval: number, previousWin: number, followingWin: number}[], max: {producer: string, interval: number, previousWin: number, followingWin: number}[]}}
+ * @returns {{min: ProducerIntervalData[], max: ProducerIntervalData[]}}
  */
 export default function getProducersIntervalAwards() {
+  /** @type {Producer[]} */
   const producers = select(
     SqlBricks
       .select('*')
@@ -16,7 +34,9 @@ export default function getProducersIntervalAwards() {
       .toString()
   )
 
+  /** @type {ProducerIntervalData[]} */
   const min = []
+  /** @type {ProducerIntervalData[]} */
   const max = []
 
   for (const producer of producers) {
