@@ -9,11 +9,17 @@ const server = createServer((req, res) => {
   console.info(`${method} ${url}`)
 
   if (url === '/api/v1/producers/interval-awards' && method === 'GET') {
+    console.log(
+      SqlBricks
+        .select('*')
+        .from('producers')
+        .where(SqlBricks.isNotNull('max_previousWin'))
+        .toString())
     const total = select(
       SqlBricks
-        .select('count(*) as total')
-        .from('movies')
-        .orderBy('year')
+        .select('*')
+        .from('producers')
+        .where(SqlBricks.isNotNull('max_previousWin'))
         .toString()
     )
  
