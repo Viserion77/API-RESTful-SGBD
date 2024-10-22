@@ -1,7 +1,7 @@
 // @ts-check
 
-const fs = require('fs').promises
-const { TO_SCAN_DIRECTORY } = require('./constants')
+import fs from 'node:fs/promises'
+import { TO_SCAN_DIRECTORY } from './constants.js'
 
 /**
  * Get CSV files from the directory
@@ -9,10 +9,8 @@ const { TO_SCAN_DIRECTORY } = require('./constants')
  * @example
  * getCsvFiles()
  */
-async function getCsvFiles() {
+export default async function getCsvFiles() {
   const files = await fs.readdir(TO_SCAN_DIRECTORY)
   const csvFiles = files.filter(file => file.endsWith('.csv'))
   return csvFiles
 }
-
-module.exports = getCsvFiles

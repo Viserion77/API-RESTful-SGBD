@@ -1,8 +1,8 @@
 // @ts-check
 
-const fs = require('fs').promises
-const { INVALID_CSV_HEADERS, TO_SCAN_DIRECTORY } = require('./constants')
-const parseMovieData = require('./parseMovieData')
+import fs from 'node:fs/promises'
+import { INVALID_CSV_HEADERS, TO_SCAN_DIRECTORY } from './constants.js'
+import parseMovieData from './parseMovieData.js'
 
 /**
  * Parse a CSV file and return the movie list
@@ -11,7 +11,7 @@ const parseMovieData = require('./parseMovieData')
  * @example
  * parseCsvFile('movies.csv')
  */
-async function parseCsvFile(file) {
+export default async function parseCsvFile(file) {
   const content = await fs.readFile(`${TO_SCAN_DIRECTORY}/${file}`, 'utf-8')
 
   try {
@@ -24,5 +24,3 @@ async function parseCsvFile(file) {
     throw error
   }
 }
-
-module.exports = parseCsvFile

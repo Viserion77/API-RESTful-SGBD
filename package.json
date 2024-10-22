@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Uma API RESTful para possibilitar a leitura da lista de indicados e vencedores da categoria Pior Filme do Golden Raspberry Awards.",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "node --inspect --watch --experimental-sqlite src/index.js",
     "start": "node src/index.js",

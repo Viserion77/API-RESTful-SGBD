@@ -1,7 +1,7 @@
 // @ts-check
 
-const { CSV_SEPARATOR } = require("./constants")
-const validateCsvHeaders = require("./validateCsvHeaders")
+import { CSV_SEPARATOR } from "./constants.js"
+import validateCsvHeaders from "./validateCsvHeaders.js"
 
 /**
  * Parse the movie data from the CSV content
@@ -10,7 +10,7 @@ const validateCsvHeaders = require("./validateCsvHeaders")
  * @example
  * parseMovieData('year;title;studios;producers;winner\n200;Movie Title;Studio;Producer;yes')
  */
-function parseMovieData(content) {
+export default function parseMovieData(content) {
   const lines = content.split('\n')
 
   const headers = lines.shift()?.split(CSV_SEPARATOR) ?? []
@@ -28,5 +28,3 @@ function parseMovieData(content) {
     }
   })
 }
-
-module.exports = parseMovieData

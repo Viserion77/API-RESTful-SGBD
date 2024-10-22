@@ -1,9 +1,9 @@
 // @ts-check
 
-const importCsvMovies = require("./services/importCsvMovies");
+import importCsvMovies from "./services/importCsvMovies/index.js";
 
 (async () => {
   const movieLiest = await importCsvMovies()
 
-  console.log(movieLiest)
+  console.log(movieLiest.length)
 })()

@@ -1,7 +1,7 @@
 // @ts-check
 
-const getCsvFiles = require("./getCsvFiles")
-const parseCsvFile = require("./parseCsvFile")
+import getCsvFiles from "./getCsvFiles.js"
+import parseCsvFile from "./parseCsvFile.js"
 
 /**
  * Import movies from CSV files
@@ -9,11 +9,9 @@ const parseCsvFile = require("./parseCsvFile")
  * @example
  * importCsvMovies()
  */
-async function importCsvMovies() {
+export default async function importCsvMovies() {
   const csvFiles = await getCsvFiles()
 
   const movies = await Promise.all(csvFiles.map(parseCsvFile))
   return movies.flat()
 }
-
-module.exports = importCsvMovies
