@@ -1,7 +1,7 @@
 // @ts-check
 
 import { CSV_SEPARATOR } from "./constants.js"
-import valdiateDataLive from "./valdiateDataLive.js"
+import validateMovieData from "./validateMovieData.js"
 import validateCsvHeaders from "./validateCsvHeaders.js"
 
 /**
@@ -22,7 +22,7 @@ export default function parseMovieData(content) {
 
   return lines.reduce((acc, line) => {
     const [year, title, studios, producers, winner] = line.split(CSV_SEPARATOR)
-    const invalidLine = valdiateDataLive(year, title, studios, producers, winner)
+    const invalidLine = validateMovieData(year, title, studios, producers, winner)
     if (invalidLine) {
       console.error(`Invalid line: ${invalidLine}`)
       return acc

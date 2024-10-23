@@ -7,9 +7,9 @@
  * @param {string} winner
  * @returns {string | undefined}
  * @example
- * valdiateDataLive('200', 'Movie Title', 'Studio', 'Producer', 'yes')
+ * validateMovieData('200', 'Movie Title', 'Studio', 'Producer', 'yes')
  */
-export default function valdiateDataLive(year, title, studios, producers, winner) {
+export default function validateMovieData(year, title, studios, producers, winner) {
   if (isNaN(parseInt(year))) {
     return 'Invalid year'
   }
