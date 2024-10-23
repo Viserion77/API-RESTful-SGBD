@@ -23,6 +23,12 @@ function initializeProducersTable() {
     ) STRICT`);
 }
 
+/**
+ * Run the seed to populate the producers table
+ * @param {object[]} movies list of movies
+ * @example
+ * runSeed([{ title: 'Movie', year: 2000, studios: 'Studio', producers: 'Producer', winner: true }])
+ */
 export function runSeed(movies) {
   initializeProducersTable();
 
