@@ -64,3 +64,4 @@ const database = new DatabaseSync('./meu-db.sqlite'); // salva em um arquivo
 - sql-bricks, lib que ajuda na criação de scripts sql dinâmicos, além de proteger de possíveis ataques de sql injection.
 - jest, lib para ajudar a criar o teste de integração do sistema
 - jsdoc, utilizado para ajudar a criar o projeto com mais precisão, ajudando nas tipagens e documentações
+- nvm, auxiliando na instalação da versão correta do node para o projeto(junto com o arquivo `.nvmrc`).
