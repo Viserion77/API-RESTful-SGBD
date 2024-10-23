@@ -35,7 +35,7 @@ export function select(query) {
 export function runSeed(movies) {
   initializeProducersTable();
 
-  populateProducersTable(movies);
+  if (movies.length) populateProducersTable(movies);
 }
 
 function populateProducersTable(movies) {
