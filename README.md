@@ -65,3 +65,9 @@ const database = new DatabaseSync('./meu-db.sqlite'); // salva em um arquivo
 - jest, lib para ajudar a criar o teste de integração do sistema
 - jsdoc, utilizado para ajudar a criar o projeto com mais precisão, ajudando nas tipagens e documentações
 - nvm, auxiliando na instalação da versão correta do node para o projeto(junto com o arquivo `.nvmrc`).
+
+## Sobre as escolhas de arquitetura
+Foi escolhido o caminho de processar os dados recebidos em memoria do js, e salvando os dados compilados no banco,
+isto pois entendi que não será adicionado ou alterado nenhum dado enquanto a aplicação estiver online.
+
+há possibilidade de melhorar a parte de escalabilidade migrando esse calculo para rodar na hora da resposta ao endpoint, sendo processado pelo próprio sqlite.
