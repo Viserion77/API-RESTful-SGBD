@@ -4,6 +4,8 @@ import importCsvMovies from "./services/importCsvMovies/index.js";
 import { runSeed } from './db.js';
 import getProducersIntervalAwards from './services/producers/interval-awards.js';
 
+const SERVER_PORT = 3000
+
 const server = createServer((req, res) => {
   const { url, method } = req
   console.info(`${method} ${url}`)
@@ -18,21 +20,14 @@ const server = createServer((req, res) => {
   res.end()
 });
 
-const port = 3000
-server.listen(port, async () => {
+server.listen(SERVER_PORT, async () => {
   const movieList = await importCsvMovies()
   runSeed(movieList)
 
   console.log(`\n\n\n`);
-  console.log(`Server started at http://localhost:${port}\n`);
+  console.log(`Server started at http://localhost:${SERVER_PORT}\n`);
   console.log(`You can access the following endpoints:`);
-  console.log(`GET http://localhost:${port}/api/v1/producers/interval-awards`);
-
-  // const result = await (await fetch('http://localhost:port/api/v1/producers/interval-awards', {
-  //   method: 'GET',
-  // })).json()
-
-  // console.log('GET:', result)
+  console.log(`GET http://localhost:${SERVER_PORT}/api/v1/producers/interval-awards`);
 })
 
 export default server;
