@@ -20,8 +20,8 @@ const server = createServer((req, res) => {
 
 const port = 3000
 server.listen(port, async () => {
-  const movieLiest = await importCsvMovies()
-  runSeed(movieLiest)
+  const movieList = await importCsvMovies()
+  runSeed(movieList)
 
   console.log(`\n\n\n`);
   console.log(`Server started at http://localhost:${port}\n`);
@@ -35,3 +35,4 @@ server.listen(port, async () => {
   // console.log('GET:', result)
 })
 
+export default server;
