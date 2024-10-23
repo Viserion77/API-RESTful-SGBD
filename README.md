@@ -35,3 +35,9 @@ Ao iniciar o projeto ele irá anunciar que a api esta online, a partir de então
 ```bash
 curl http://localhost:3000/api/v1/producers/interval-awards
 ```
+
+## Rodando os testes de integração
+```bash
+npm test
+```
+(Importante alertar que o arquivo `movielist.csv` é utilizado como base para os testes)
