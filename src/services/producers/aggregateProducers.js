@@ -1,5 +1,7 @@
 // @ts-check
 
+import splitListNames from '../../utils/splitListNames.js';
+
 /**
  * Aggregate producers from movies
  * @param {object[]} movies
@@ -9,7 +11,7 @@
  */
 export default function aggregateProducers(movies) {
   return movies.reduce((acc, movie) => {
-    const producersNames = movie.producers.split(' and ');
+    const producersNames = splitListNames(movie.producers);
 
     producersNames.forEach((producer) => {
       if (!acc[producer]) {
