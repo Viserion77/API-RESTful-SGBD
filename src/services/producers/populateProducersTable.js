@@ -1,8 +1,8 @@
 // @ts-check
 
-import { insert } from "../../db";
-import aggregateProducers from "./aggregateProducers";
-import calculateRewardIntervals from "./calculateRewardIntervals";
+import { insert } from "../../db.js";
+import aggregateProducers from "./aggregateProducers.js";
+import calculateRewardIntervals from "./calculateRewardIntervals.js";
 
 export default function populateProducersTable(movies) {
   const producers = aggregateProducers(movies);

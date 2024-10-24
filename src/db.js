@@ -2,7 +2,7 @@
 
 import { DatabaseSync } from 'node:sqlite';
 import sqlBricks from 'sql-bricks';
-import populateProducersTable from './services/producers/populateProducersTable';
+import populateProducersTable from './services/producers/populateProducersTable.js';
 const database = new DatabaseSync(':memory:');
 
 /**
