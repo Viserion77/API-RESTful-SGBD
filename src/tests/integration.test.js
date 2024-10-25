@@ -5,13 +5,13 @@ beforeAll(async () => {
 });
 
 describe('Integration test', () => {
-  it('Deve retornar 200 ao acessar a rota /api/movies', async () => {
+  it('Deve retornar 200 ao acessar a rota /api/v1/producers/interval-awards', async () => {
 
     const response = await fetch('http://localhost:3000/api/v1/producers/interval-awards');
     expect(response.status).toBe(200);
   });
 
-  it('Deve retornar o json com os filmes ao acessar a rota /api/movies', async () => {
+  it('Deve retornar o json com os filmes ao acessar a rota /api/v1/producers/interval-awards', async () => {
     const response = await (await fetch('http://localhost:3000/api/v1/producers/interval-awards')).json();
 
     expect(response).toEqual({
