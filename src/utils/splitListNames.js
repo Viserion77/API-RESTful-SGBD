@@ -1,3 +1,4 @@
+// @ts-check
 
 /**
  * Extract names from a list of names in string format
